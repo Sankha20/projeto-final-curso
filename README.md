@@ -17,10 +17,10 @@ JDK 1.8
 ## Como utilizar
 
 ### Arquivo conexão
-*criarConexao: Cria e retorna uma conexão com o banco de dados
-*updateDB(str): Recebe uma string que fará update no banco
+* criarConexao: Cria e retorna uma conexão com o banco de dados
+* updateDB(str): Recebe uma string que fará update no banco
 
 ### Arquivo Ferramentas
-*confirma(msg): Mostra caixa de texto pedindo confirmação | Retorna True / False
-*alerta(msg): Mostra caixa de texto de alerta
-*erro(msg): Mostra caixa de texto de erro
+* confirma(msg): Mostra caixa de texto pedindo confirmação | Retorna True / False
+* alerta(msg): Mostra caixa de texto de alerta
+* erro(msg): Mostra caixa de texto de erro
