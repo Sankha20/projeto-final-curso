@@ -9,7 +9,7 @@ import javax.swing.JFrame;
 
 /**
  *
- * @author just_
+ * @author Victor Pontes
  */
 public class Menu extends javax.swing.JFrame {
 
@@ -45,33 +45,33 @@ public class Menu extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 0));
 
-        ico_botoesMusica.setIcon(new javax.swing.ImageIcon("C:\\Users\\just_\\Desktop\\SocaSom\\logo2.png")); // NOI18N
+        ico_botoesMusica.setIcon(new javax.swing.ImageIcon(getClass().getResource("/interfaces/midia/logo2.png"))); // NOI18N
 
-        ico_socaSom.setIcon(new javax.swing.ImageIcon("C:\\Users\\just_\\Desktop\\SocaSom\\logo.png")); // NOI18N
+        ico_socaSom.setIcon(new javax.swing.ImageIcon(getClass().getResource("/interfaces/midia/logo.png"))); // NOI18N
 
         btn_clientes.setBackground(new java.awt.Color(0, 0, 0));
-        btn_clientes.setIcon(new javax.swing.ImageIcon("C:\\Users\\just_\\Desktop\\SocaSom\\btn_clientes.png")); // NOI18N
+        btn_clientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/interfaces/midia/btn_clientes.png"))); // NOI18N
         btn_clientes.setBorder(null);
         btn_clientes.setBorderPainted(false);
         btn_clientes.setContentAreaFilled(false);
         btn_clientes.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btn_clientes.setRolloverIcon(new javax.swing.ImageIcon("C:\\Users\\just_\\Desktop\\SocaSom\\btn_clientes_hover.png")); // NOI18N
+        btn_clientes.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/interfaces/midia/btn_clientes_hover.png"))); // NOI18N
 
         btn_produtos.setBackground(new java.awt.Color(0, 0, 0));
-        btn_produtos.setIcon(new javax.swing.ImageIcon("C:\\Users\\just_\\Desktop\\SocaSom\\btn_produtos.png")); // NOI18N
+        btn_produtos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/interfaces/midia/btn_produtos.png"))); // NOI18N
         btn_produtos.setBorder(null);
         btn_produtos.setBorderPainted(false);
         btn_produtos.setContentAreaFilled(false);
         btn_produtos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btn_produtos.setRolloverIcon(new javax.swing.ImageIcon("C:\\Users\\just_\\Desktop\\SocaSom\\btn_produtos_hover.png")); // NOI18N
+        btn_produtos.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/interfaces/midia/btn_produtos_hover.png"))); // NOI18N
 
         btn_vendas.setBackground(new java.awt.Color(0, 0, 0));
-        btn_vendas.setIcon(new javax.swing.ImageIcon("C:\\Users\\just_\\Desktop\\SocaSom\\btn_vendas.png")); // NOI18N
+        btn_vendas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/interfaces/midia/btn_vendas.png"))); // NOI18N
         btn_vendas.setBorder(null);
         btn_vendas.setBorderPainted(false);
         btn_vendas.setContentAreaFilled(false);
         btn_vendas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btn_vendas.setRolloverIcon(new javax.swing.ImageIcon("C:\\Users\\just_\\Desktop\\SocaSom\\btn_vendas_hover.png")); // NOI18N
+        btn_vendas.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/interfaces/midia/btn_vendas_hover.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
