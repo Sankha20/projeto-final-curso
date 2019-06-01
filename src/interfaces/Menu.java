@@ -30,11 +30,11 @@ public class Menu extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        ico_botoesMusica = new javax.swing.JLabel();
+        ico_socaSom = new javax.swing.JLabel();
+        btn_clientes = new javax.swing.JButton();
+        btn_produtos = new javax.swing.JButton();
+        btn_vendas = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Soca Som");
@@ -45,49 +45,66 @@ public class Menu extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 0));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\just_\\Desktop\\SocaSom\\logo2.png")); // NOI18N
+        ico_botoesMusica.setIcon(new javax.swing.ImageIcon("C:\\Users\\just_\\Desktop\\SocaSom\\logo2.png")); // NOI18N
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\just_\\Desktop\\SocaSom\\logo.png")); // NOI18N
+        ico_socaSom.setIcon(new javax.swing.ImageIcon("C:\\Users\\just_\\Desktop\\SocaSom\\logo.png")); // NOI18N
 
-        jButton1.setText("Clientes");
-        jButton1.setPreferredSize(new java.awt.Dimension(120, 25));
+        btn_clientes.setBackground(new java.awt.Color(0, 0, 0));
+        btn_clientes.setIcon(new javax.swing.ImageIcon("C:\\Users\\just_\\Desktop\\SocaSom\\btn_clientes.png")); // NOI18N
+        btn_clientes.setBorder(null);
+        btn_clientes.setBorderPainted(false);
+        btn_clientes.setContentAreaFilled(false);
+        btn_clientes.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btn_clientes.setRolloverIcon(new javax.swing.ImageIcon("C:\\Users\\just_\\Desktop\\SocaSom\\btn_clientes_hover.png")); // NOI18N
 
-        jButton2.setText("Produtos");
-        jButton2.setPreferredSize(new java.awt.Dimension(120, 25));
+        btn_produtos.setBackground(new java.awt.Color(0, 0, 0));
+        btn_produtos.setIcon(new javax.swing.ImageIcon("C:\\Users\\just_\\Desktop\\SocaSom\\btn_produtos.png")); // NOI18N
+        btn_produtos.setBorder(null);
+        btn_produtos.setBorderPainted(false);
+        btn_produtos.setContentAreaFilled(false);
+        btn_produtos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btn_produtos.setRolloverIcon(new javax.swing.ImageIcon("C:\\Users\\just_\\Desktop\\SocaSom\\btn_produtos_hover.png")); // NOI18N
 
-        jButton3.setText("Venda");
-        jButton3.setPreferredSize(new java.awt.Dimension(120, 25));
+        btn_vendas.setBackground(new java.awt.Color(0, 0, 0));
+        btn_vendas.setIcon(new javax.swing.ImageIcon("C:\\Users\\just_\\Desktop\\SocaSom\\btn_vendas.png")); // NOI18N
+        btn_vendas.setBorder(null);
+        btn_vendas.setBorderPainted(false);
+        btn_vendas.setContentAreaFilled(false);
+        btn_vendas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btn_vendas.setRolloverIcon(new javax.swing.ImageIcon("C:\\Users\\just_\\Desktop\\SocaSom\\btn_vendas_hover.png")); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(ico_botoesMusica))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(80, 80, 80)
-                        .addComponent(jLabel2))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(97, 97, 97)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
+                .addGap(92, 92, 92)
+                .addComponent(ico_socaSom)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btn_vendas, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(btn_produtos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btn_clientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGap(202, 202, 202))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addComponent(jLabel2)
-                .addGap(71, 71, 71)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
-                .addComponent(jLabel1))
+                .addComponent(ico_socaSom)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
+                .addComponent(btn_vendas)
+                .addGap(18, 18, 18)
+                .addComponent(btn_clientes)
+                .addGap(18, 18, 18)
+                .addComponent(btn_produtos)
+                .addGap(11, 11, 11)
+                .addComponent(ico_botoesMusica))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -144,11 +161,11 @@ public class Menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JButton btn_clientes;
+    private javax.swing.JButton btn_produtos;
+    private javax.swing.JButton btn_vendas;
+    private javax.swing.JLabel ico_botoesMusica;
+    private javax.swing.JLabel ico_socaSom;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
