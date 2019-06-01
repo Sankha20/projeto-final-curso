@@ -48,14 +48,19 @@ public class Principal extends javax.swing.JFrame {
         card.show(pnl_conteudo, panel);
     }
     
-    
+    /**
+     * Função usada para imprimir no terminal msgs de debug.
+     * @param msg Mensagem de deubg
+     */
     private void debug(String msg) {
         if (DEBUG) {
             System.out.println("DEBUG | " + msg);
         }
     }
     
-    
+    /**
+     * Inicializa os componentes responsáveis para a mudança de telas do menu
+     */
     private void initCardLayout() {
         clientes = new Clientes();
         produtos = new Produtos();
@@ -67,6 +72,7 @@ public class Principal extends javax.swing.JFrame {
     }
     
     
+    // Botões de comando do menu principal
     private void botaoMenuClientes() {
         mudarMenu(CARD_CLIENTES);
     }
