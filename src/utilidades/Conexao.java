@@ -8,8 +8,8 @@ import java.sql.Statement;
 
 public class Conexao {
     
-    private final String USER = "usuario";
-    private final String PASS = "usuario";
+    private final String USER = "root";
+    private final String PASS = "798451";
     private final String PORT = "3307";
     private final String URL = String.format(
             "jdbc:mysql://localhost:%s/socasom?useUnicode=true&"
