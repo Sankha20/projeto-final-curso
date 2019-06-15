@@ -5,6 +5,7 @@
  */
 package interfaces;
 
+import controller.ProdutoController;
 import java.awt.FlowLayout;
 import java.awt.Frame;
 import java.util.List;
@@ -14,8 +15,10 @@ import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JRadioButton;
 import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import model.Cliente;
+import model.Produto;
 import utilidades.*;
 
 /**
@@ -23,6 +26,8 @@ import utilidades.*;
  * @author just_
  */
 public class Vendas extends javax.swing.JPanel {
+
+    private List<Produto> produtos;
 
     /**
      * Creates new form Vendas
@@ -34,6 +39,7 @@ public class Vendas extends javax.swing.JPanel {
         jTextField2.setEnabled(false);
         jTextField3.setEnabled(false);
         jTextField4.setEnabled(false);
+        carregaProdutos();
     }
 
     public void limpar() {
@@ -44,12 +50,18 @@ public class Vendas extends javax.swing.JPanel {
     }
 
     public void carregaProdutos() {
+        ProdutoController produtoController = new ProdutoController();
 
-         DaoClientes daoCliente = new DaoClientes();
-        List<Cliente> clientes = daoCliente.carregarClientes();
-        DefaultComboBoxModel model = new DefaultComboBoxModel((Vector) clientes);
-        jTableProdutos.setModel((TableModel) model);
-        
+        produtos = produtoController.buscarProdutos();
+
+        Object[] colunas = {"Id", "Midia", "Preço", "Compositor", "Album"};
+        DefaultTableModel tableModel = new DefaultTableModel(colunas, 0);
+
+        for (Produto produto : produtos) {
+            Object[] linhas = {produto.getId(), produto.getMidia(), produto.getPreco(), produto.getCompositor(), produto.getAlbum()};
+            tableModel.addRow(linhas);
+        }
+        jTableProdutos.setModel(tableModel);
     }
 
     /**
@@ -149,7 +161,7 @@ public class Vendas extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Id", "Nome", "Preço"
+                "Id", "Midia", "Preço", "Compositor", "Album"
             }
         ));
         jScrollPane3.setViewportView(jTableProdutos);

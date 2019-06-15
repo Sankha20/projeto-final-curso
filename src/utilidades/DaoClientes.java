@@ -6,12 +6,12 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import model.Cliente;
-import utilidades.Conexao;
+
 
 public class DaoClientes {
 
     private final String SELECT_CLIENTES = "select * from cliente";
-    Conexao conexao = new Conexao();
+   
 
     public DaoClientes() {
     }
@@ -20,7 +20,7 @@ public class DaoClientes {
         List<Cliente> clientes = new ArrayList<>();
 
         try {
-            Connection conn = conexao.criarConexao();
+            Connection conn = ConnectionFactory.getConnection();
             PreparedStatement stm = conn.prepareStatement(SELECT_CLIENTES);
 //            stm.setBoolean(1, true);
             ResultSet rs = stm.executeQuery();

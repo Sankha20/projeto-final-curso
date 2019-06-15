@@ -9,13 +9,13 @@ import utilidades.*;
  */
 public class Clientes extends javax.swing.JPanel {
 
-    Conexao conexao;
+  
     /**
      * Creates new form Clientes
      */
     public Clientes() {
         initComponents();
-        conexao = new Conexao();
+ 
     }
 
     /**
