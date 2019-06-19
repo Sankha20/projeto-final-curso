@@ -16,6 +16,7 @@ create table produto (
 	album VARCHAR(50),
 	compositor VARCHAR(50),
 	midia VARCHAR(10),
+    genero varchar(20),
 	preco NUMERIC(10,2),
 	primary key (id)
 )ENGINE = InnoDB DEFAULT CHARACTER SET = utf8;
