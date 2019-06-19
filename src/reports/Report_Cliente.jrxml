@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b4d74b03-99a7-4389-bbec-29bd38bb5a51">
+	<property name="ireport.zoom" value="1.610510000000001"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="table">
+		<box>
+			<topPen lineWidth="1.0" lineColor="#000000"/>
+			<bottomPen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="ClienteDataset" uuid="def32f03-dde5-4ba4-8748-55355cbb6f7d">
+		<queryString language="SQL">
+			<![CDATA[SELECT
+     cliente.`cpf` AS cliente_cpf,
+     cliente.`nome` AS cliente_nome,
+     cliente.`email` AS cliente_email,
+     cliente.`pontos` AS cliente_pontos
+FROM
+     `cliente` cliente
+ORDER BY cliente_nome]]>
+		</queryString>
+		<field name="cliente_cpf" class="java.lang.String"/>
+		<field name="cliente_nome" class="java.lang.String"/>
+		<field name="cliente_email" class="java.lang.String"/>
+		<field name="cliente_pontos" class="java.lang.Integer"/>
+		<group name="cliente_cpf">
+			<groupExpression><![CDATA[$F{cliente_cpf}]]></groupExpression>
+		</group>
+		<group name="cliente_nome">
+			<groupExpression><![CDATA[$F{cliente_nome}]]></groupExpression>
+		</group>
+		<group name="cliente_email">
+			<groupExpression><![CDATA[$F{cliente_email}]]></groupExpression>
+		</group>
+		<group name="cliente_pontos">
+			<groupExpression><![CDATA[$F{cliente_pontos}]]></groupExpression>
+		</group>
+	</subDataset>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     cliente.`cpf` AS cliente_cpf,
+     cliente.`nome` AS cliente_nome,
+     cliente.`email` AS cliente_email,
+     cliente.`pontos` AS cliente_pontos
+FROM
+     `cliente` cliente
+ORDER BY cliente_nome]]>
+	</queryString>
+	<field name="cliente_cpf" class="java.lang.String"/>
+	<field name="cliente_nome" class="java.lang.String"/>
+	<field name="cliente_email" class="java.lang.String"/>
+	<field name="cliente_pontos" class="java.lang.Integer"/>
+	<group name="cliente_cpf">
+		<groupExpression><![CDATA[$F{cliente_cpf}]]></groupExpression>
+	</group>
+	<group name="cliente_email">
+		<groupExpression><![CDATA[$F{cliente_email}]]></groupExpression>
+	</group>
+	<group name="cliente_pontos">
+		<groupExpression><![CDATA[$F{cliente_pontos}]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="555" height="52" uuid="3dd6da4a-08b0-47ad-a1e5-b3352fd35d9b"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="Monospaced" size="24" isBold="true" isUnderline="true"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[Relatório Clientes]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="52" width="555" height="27" uuid="983717ab-5517-4a4b-99cc-8a371b880243"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font fontName="Monospaced" size="16"/>
+				</textElement>
+				<text><![CDATA[SocaSom]]></text>
+			</staticText>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="455" y="52" width="100" height="20" uuid="f43aeebf-ec09-4175-8600-118a2a6bc0d2"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="33" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="100" height="31" uuid="123871c9-60b2-4282-b864-40d45ef5412a"/>
+				<textElement textAlignment="Center">
+					<font size="18"/>
+				</textElement>
+				<text><![CDATA[CPF]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="0" width="166" height="31" uuid="467bf217-1807-43b7-a25f-814fb5d32da0"/>
+				<textElement textAlignment="Center">
+					<font size="18"/>
+				</textElement>
+				<text><![CDATA[NOME]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="266" y="0" width="206" height="31" uuid="a0b78d0f-fd90-42ca-95cb-ac42115b05dc"/>
+				<textElement textAlignment="Center">
+					<font size="18"/>
+				</textElement>
+				<text><![CDATA[EMAIL]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="472" y="0" width="83" height="31" uuid="e2e7f8cc-7c02-4d11-ac95-19ca6bccb67e"/>
+				<textElement textAlignment="Center">
+					<font size="18"/>
+				</textElement>
+				<text><![CDATA[PONTOS]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="33" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="5" width="100" height="20" forecolor="#009900" uuid="280af961-3c14-4a0d-b276-b5799849cf62"/>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cliente_cpf}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="100" y="5" width="166" height="20" uuid="f11c8d1a-167a-43f6-9f65-1f2c82bc77c1"/>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cliente_nome}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="266" y="5" width="206" height="20" uuid="b7459360-cc65-4c07-8697-b7cc638f90fb"/>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cliente_email}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="472" y="5" width="83" height="20" forecolor="#FF0033" uuid="b157473d-645a-4714-9e20-635fb945f32e"/>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cliente_pontos}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="30" width="555" height="1" uuid="18bf8ff0-6e7e-4b1c-941f-3a8211a6a47d"/>
+			</line>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="21" splitType="Stretch">
+			<textField>
+				<reportElement x="75" y="0" width="203" height="20" uuid="df751715-0693-4c90-800f-9248293fd9f3"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Página " + $V{PAGE_NUMBER} + " de "]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="278" y="0" width="100" height="20" uuid="4160cd87-ddd4-482c-a814-540f9533e385"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>
