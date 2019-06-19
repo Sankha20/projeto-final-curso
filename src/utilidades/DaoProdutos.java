@@ -233,5 +233,29 @@ public class DaoProdutos {
             return null;
             }
     }
+    
+    public ResultSet imprimir(int numero){
+        String inst="Select * from Produto";
+        
+        if (numero > 0) {
+           inst+=" where id = ";
+           inst+=String.valueOf(numero);
+        } 
+            
+        inst+=" order by id;";
+        
+        ResultSet rS = null; 
+             
+        try{
+           Connection con = ConnectionFactory.getConnection();
+           Statement sT = con.createStatement();
+           rS= sT.executeQuery(inst);               
+        }
+        catch (SQLException e){
+        System.out.println(e.getSQLState()+ " problemas na consulta do registro " +
+                String.valueOf(numero));                 
+        }
+        return (rS);      
+   } 
 
 }

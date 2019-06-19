@@ -1,10 +1,23 @@
 package view;
 
 // Victor: Ajeitei alguns imports
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import model.Produto;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JRResultSetDataSource;
+import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperExportManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.view.JasperViewer;
 import utilidades.DaoProdutos;
 import utilidades.Ferramentas;
 
@@ -16,7 +29,8 @@ public class Produtos extends javax.swing.JPanel {
     DaoProdutos bd = new DaoProdutos();
     ArrayList<Produto> produtos;
     Produto selecionado = null;
-
+    private String salvar1;
+    private String salvar2;
     /**
      * Creates new form Produtos
      */
@@ -99,6 +113,45 @@ public class Produtos extends javax.swing.JPanel {
         txt_preco.setEnabled(true);
 
     }
+    
+    
+    //Ro: A função de gerar o relatório em si
+    public void relatorioProduto() throws JRException, SQLException{
+        ResultSet rs = null;
+        int numero = 0;
+
+       // if (d.testaNum(jTxtNumero.getText(), titulo)) {
+                 
+            if (! txt_id.getText().isEmpty() ){
+               numero = Integer.parseInt(txt_id.getText());
+            }
+            
+            rs = bd.imprimir(numero);
+
+            //implementação da interface JR ResultSetDataSource
+            JRResultSetDataSource jrRS = new JRResultSetDataSource(rs);
+            
+            //criei um package pros relatórios, usei o blue simple.
+            JasperReport report = JasperCompileManager.compileReport("src/reports/realatorioproduto.jrxml");
+            JasperPrint print = JasperFillManager.fillReport(report, null, jrRS);
+            JasperViewer viewer = new JasperViewer(print, true);
+            viewer.show();
+
+           JFileChooser abrir = new JFileChooser();
+            int retorno = abrir.showOpenDialog(null);
+            if (retorno == JFileChooser.APPROVE_OPTION) {
+                salvar1 = abrir.getSelectedFile().getAbsolutePath();
+            }
+            salvar2 = salvar1 + ".pdf";
+            //salvar2 = "cargo.pdf";
+            JasperExportManager.exportReportToPdfFile(print, salvar2);
+
+            JOptionPane.showMessageDialog(null, "Listagem pronta!");
+            limparCampos();
+       // }
+    }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -173,6 +226,11 @@ public class Produtos extends javax.swing.JPanel {
         });
 
         jButton4.setText("Relatório");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         btNovo.setText("Novo");
         btNovo.addActionListener(new java.awt.event.ActionListener() {
@@ -466,6 +524,8 @@ public class Produtos extends javax.swing.JPanel {
 
     }//GEN-LAST:event_tabela_produtosMouseClicked
 
+    
+  
     private void btAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAlterarActionPerformed
         Produto p = new Produto();
 
@@ -538,6 +598,19 @@ public class Produtos extends javax.swing.JPanel {
         btAlterar.setEnabled(false);
         btDeletar.setEnabled(false);
     }//GEN-LAST:event_btNovoActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        //Ro: Trycatch pq senão o Jasper Reclama
+        try {
+            try {
+                relatorioProduto(); // TODO add your handling code here:
+            } catch (SQLException ex) {
+                Logger.getLogger(Produto.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } catch (JRException ex) {
+            Logger.getLogger(Produto.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButton4ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
