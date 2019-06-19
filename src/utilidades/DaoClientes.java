@@ -62,7 +62,7 @@ public class DaoClientes {
         
         return false;
     }
-    
+      
     public boolean update (Cliente cliente) {
         String sql = "UPDATE cliente SET nome = ?, email = ?, pontos = ? "
                 + "WHERE cpf = ?;";
