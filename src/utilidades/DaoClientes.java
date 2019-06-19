@@ -8,8 +8,17 @@ import java.sql.ResultSet;
 import java.sql.PreparedStatement;
 import java.util.ArrayList;
 
+/**
+ * Guarda as conexões entre o modelo Cliente e a tabela cliente no banco
+ * @author Victor Pontes
+ */
 public class DaoClientes {
     
+    /**
+     * Busca todos os clientes do banco e retorna em forma de ArrayList
+     * @return <code>ArrayList</code>
+     * de todos os clientes.
+     */
     public ArrayList<Cliente> selectAll() {
         ArrayList<Cliente> clientes = new ArrayList<>();
         
@@ -42,6 +51,12 @@ public class DaoClientes {
         return clientes;
     }
     
+    /**
+     * Deleta um cliente pelo cpf
+     * @param cpf o cpf do cliente
+     * @return <code>boolean</code>
+     * indicando se deu certo ou não
+     */
     public boolean delete (String cpf) {
         String sql = "DELETE FROM cliente WHERE cpf = ?;";
         try {
@@ -63,6 +78,12 @@ public class DaoClientes {
         return false;
     }
       
+    /**
+     * Atualiza o cliente no banco
+     * @param cliente modelo do cliente preenchido
+     * @return <code>boolean</code>
+     * indicando se deu certo ou não.
+     */
     public boolean update (Cliente cliente) {
         String sql = "UPDATE cliente SET nome = ?, email = ?, pontos = ? "
                 + "WHERE cpf = ?;";
@@ -88,6 +109,13 @@ public class DaoClientes {
         return false;
     }
     
+    
+    /**
+     * Insere novo cliente no banco
+     * @param cliente O novo cliente a ser inserido
+     * @return <code>boolean</code>
+     * Indicando se deu certo ou não.
+     */
     public boolean insert (Cliente cliente) {
         String sql = "INSERT INTO cliente (cpf, nome, email, pontos) "
                 + "VALUES (?, ?, ?, ?);";  
@@ -114,7 +142,7 @@ public class DaoClientes {
             Ferramentas.erro("Houve um erro ao tentar adicionar novo cliente.");
             System.err.println(e);
         }
-        
+
         return false;
     }
 }
