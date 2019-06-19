@@ -3,8 +3,6 @@ package utilidades;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.sql.Statement;
-
 
 public class Conexao {
     
@@ -16,7 +14,6 @@ public class Conexao {
                     + "useJDBCCompliantTimezoneShift=true&"
                     + "useLegacyDatetimeCode=false&serverTimezone=UTC&"
                     + "useSSL=false", PORT);
-    
     
     /**
      * 
@@ -32,30 +29,5 @@ public class Conexao {
         }
         
         return connection;
-    }
-    
-    
-    /**
-     * 
-     * @param query String de query para update no banco
-     * @return True = Deu certo | False = Deu errado
-     */
-    public boolean updateDB(String query) {
-        boolean result = true;
-        try {
-            Connection connection = criarConexao();
-            Statement statement = connection.createStatement();
-
-            statement.executeUpdate(query);
-            statement.close();
-
-            connection.close();
-        } catch (SQLException e) {
-            System.err.println(e);
-            result = false;
-        }
-
-        return result;
-    }
-    
+    }    
 }
