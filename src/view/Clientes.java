@@ -7,6 +7,15 @@ import utilidades.*;
 import java.util.ArrayList;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.view.JasperViewer;
+
+import utilidades.ConnectionFactory;
+
+
 
 /**
  * @author Victor Pontes
@@ -223,6 +232,25 @@ public class Clientes extends javax.swing.JPanel {
         }
     }
     
+    private void newReport() {
+        try {
+            System.out.println("Criando caminho");
+            String report = "src\\reports\\Report_Cliente.jrxml";
+            
+            System.out.println("Compilando report");
+            JasperReport jr = JasperCompileManager.compileReport(report);
+            
+            System.out.println("Preenchendo Print");
+            JasperPrint jp = JasperFillManager.fillReport(jr, null, ConnectionFactory.getConnection());
+            
+            System.out.println("Mostrando na tela");
+            JasperViewer.viewReport(jp);
+            
+        } catch (Exception e) {
+            System.err.println("ERRO: newReport\n" + e );
+        }
+    }
+    
 //------------------------------------------------------------------------------
 // FIM REGION
 //------------------------------------------------------------------------------
@@ -338,6 +366,11 @@ public class Clientes extends javax.swing.JPanel {
 
         btn_relatorio.setText("Gerar Relatório");
         btn_relatorio.setToolTipText("Gera relatório de todos os clientes em PDF.");
+        btn_relatorio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_relatorioActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
@@ -573,6 +606,11 @@ public class Clientes extends javax.swing.JPanel {
         // TODO add your handling code here:
         clickBotaoDeletar();
     }//GEN-LAST:event_btn_removerActionPerformed
+
+    private void btn_relatorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_relatorioActionPerformed
+        // TODO add your handling code here:
+        newReport();
+    }//GEN-LAST:event_btn_relatorioActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
