@@ -1,4 +1,4 @@
-package interfaces;
+package view;
 
 import model.Cliente;
 import java.awt.Point;

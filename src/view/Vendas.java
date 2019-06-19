@@ -1,4 +1,4 @@
-package interfaces;
+package view;
 
 import controller.ProdutoController;
 import java.awt.FlowLayout;

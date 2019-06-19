@@ -1,4 +1,4 @@
-package interfaces;
+package view;
 
 import java.awt.CardLayout;
 import javax.swing.JFrame;
@@ -104,8 +104,6 @@ public class Principal extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Soca Som");
         setBackground(new java.awt.Color(0, 0, 0));
-        setMaximumSize(new java.awt.Dimension(928, 522));
-        setPreferredSize(new java.awt.Dimension(928, 522));
         setResizable(false);
         setSize(new java.awt.Dimension(928, 522));
 
