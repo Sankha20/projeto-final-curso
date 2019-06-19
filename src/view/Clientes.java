@@ -246,7 +246,7 @@ public class Clientes extends javax.swing.JPanel {
             String report = "src\\reports\\Report_Cliente.jrxml";
             JasperReport jr = JasperCompileManager.compileReport(report);
             JasperPrint jp = JasperFillManager.fillReport(jr, null, ConnectionFactory.getConnection());
-            JasperViewer.viewReport(jp);
+            new JasperViewer(jp, false).setVisible(true);
             JasperExportManager.exportReportToPdfFile(jp, "relatorio-clientes.pdf");
             
         } catch (Exception e) {

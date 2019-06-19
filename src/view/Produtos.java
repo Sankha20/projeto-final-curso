@@ -134,8 +134,8 @@ public class Produtos extends javax.swing.JPanel {
             //criei um package pros relatórios, usei o blue simple.
             JasperReport report = JasperCompileManager.compileReport("src/reports/realatorioproduto.jrxml");
             JasperPrint print = JasperFillManager.fillReport(report, null, jrRS);
-            JasperViewer viewer = new JasperViewer(print, true);
-            viewer.show();
+            JasperViewer viewer = new JasperViewer(print, false);
+            viewer.setVisible(true);
 
            JFileChooser abrir = new JFileChooser();
             int retorno = abrir.showOpenDialog(null);
