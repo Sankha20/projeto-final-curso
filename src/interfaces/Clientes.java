@@ -2,13 +2,10 @@ package interfaces;
 
 import classes.Cliente;
 import java.awt.Point;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 import utilidades.*;
 
 import java.util.ArrayList;
 import javax.swing.JTable;
-import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -19,9 +16,7 @@ public class Clientes extends javax.swing.JPanel {
     DaoClientes bd = new DaoClientes();
     ArrayList<Cliente> clientes;
     Cliente selecionado = null;
-    /**
-     * Creates new form Clientes
-     */
+    
     public Clientes() {
         initComponents();
         atualizarTabela();
@@ -147,7 +142,6 @@ public class Clientes extends javax.swing.JPanel {
     }
     
     
-    
 //------------------------------------------------------------------------------
 // REGION: CLIQUES
 //------------------------------------------------------------------------------
@@ -228,7 +222,10 @@ public class Clientes extends javax.swing.JPanel {
         }
     }
     
-
+//------------------------------------------------------------------------------
+// FIM REGION
+//------------------------------------------------------------------------------
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
