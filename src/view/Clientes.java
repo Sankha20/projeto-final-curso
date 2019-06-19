@@ -190,9 +190,7 @@ public class Clientes extends javax.swing.JPanel {
             Ferramentas.alerta("Inserido com sucesso.");
             atualizarTabela();
             limparCampos();
-        } else {
-            Ferramentas.erro("Houve um erro ao tentar inserir o novo cliente.");
-        } 
+        }
     }
     
     /**

@@ -1,5 +1,6 @@
 package utilidades;
 
+import com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException;
 import model.Cliente;
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -106,7 +107,11 @@ public class DaoClientes {
             
             return true;
             
+        } catch (MySQLIntegrityConstraintViolationException e) {
+            Ferramentas.erro("CPF já cadastrado.");
+            
         } catch (SQLException e) {
+            Ferramentas.erro("Houve um erro ao tentar adicionar novo cliente.");
             System.err.println(e);
         }
         
