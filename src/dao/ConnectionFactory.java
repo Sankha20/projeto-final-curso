@@ -1,4 +1,4 @@
-package utilidades;
+package dao;
 
 
 import java.sql.*;

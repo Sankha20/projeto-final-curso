@@ -1,5 +1,6 @@
-package utilidades;
+package dao;
 
+import utils.Ferramentas;
 import java.sql.*;
 import java.util.*;
 import model.Produto;

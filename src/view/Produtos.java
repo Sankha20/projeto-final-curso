@@ -18,8 +18,8 @@ import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.view.JasperViewer;
-import utilidades.DaoProdutos;
-import utilidades.Ferramentas;
+import dao.DaoProdutos;
+import utils.Ferramentas;
 
 /**
  * @author Rodrigo da Soledade Elias

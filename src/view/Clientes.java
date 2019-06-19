@@ -1,8 +1,9 @@
 package view;
 
+import dao.DaoClientes;
+import utils.Ferramentas;
 import model.Cliente;
 import java.awt.Point;
-import utilidades.*;
 
 import java.util.ArrayList;
 import javax.swing.JTable;
@@ -14,7 +15,7 @@ import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.view.JasperViewer;
 
-import utilidades.ConnectionFactory;
+import dao.ConnectionFactory;
 
 
 

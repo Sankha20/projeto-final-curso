@@ -1,5 +1,6 @@
 package view;
 
+import utils.Ferramentas;
 import controller.ProdutoController;
 import java.awt.FlowLayout;
 import java.awt.Frame;
@@ -15,7 +16,6 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import model.Cliente;
 import model.Produto;
-import utilidades.*;
 
 /**
  *
