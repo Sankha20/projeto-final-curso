@@ -1,6 +1,6 @@
 package interfaces;
 
-import classes.Cliente;
+import model.Cliente;
 import java.awt.Point;
 import utilidades.*;
 

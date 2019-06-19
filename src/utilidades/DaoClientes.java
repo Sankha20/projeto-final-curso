@@ -1,6 +1,6 @@
 package utilidades;
 
-import classes.Cliente;
+import model.Cliente;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.ResultSet;
