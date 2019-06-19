@@ -20,6 +20,7 @@ public class Clientes extends javax.swing.JPanel {
     public Clientes() {
         initComponents();
         atualizarTabela();
+ 
     }
     
 //------------------------------------------------------------------------------
