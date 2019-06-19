@@ -17,8 +17,6 @@ import net.sf.jasperreports.view.JasperViewer;
 
 import dao.ConnectionFactory;
 
-
-
 /**
  * @author Victor Pontes
  */
@@ -97,7 +95,9 @@ public class Clientes extends javax.swing.JPanel {
     /**
      * Verifica se todos os campos estão preenchidos
      * @param campos Todos os valores em STRING a serem verificados
-     * @return True: Todos preenchidos / False
+     * @return <code>True</code>
+     * se todos os campos estão preenchidos,
+     * caso contrário <code>False</code>
      */
     private boolean verificarCampos(Object ... campos) {
         for (Object campo : campos) {
@@ -110,7 +110,8 @@ public class Clientes extends javax.swing.JPanel {
     
     /**
      * Função específica para ler e tratar o CPF da tela
-     * @return String cpf em forma de string
+     * @return <code>String</code>
+     * Cpf em forma de string
      */
     private String lerCpf() {
         String cpf = String.valueOf(txt_cpf.getText());
@@ -121,8 +122,9 @@ public class Clientes extends javax.swing.JPanel {
     
     /**
      * Lê um campo e vefifica se está vazio ou não
-     * @param campo
-     * @return String ou null
+     * @param campo Qual campo deve ser lido
+     * @return <code>String</code>
+     * O texto do campo ou <code>Null</code> caso vazio.
      */
     private String lerTexto(javax.swing.JTextField campo) {        
         if (campo.getText().isEmpty())
@@ -158,6 +160,9 @@ public class Clientes extends javax.swing.JPanel {
 // REGION: CLIQUES
 //------------------------------------------------------------------------------
     
+    /**
+     * Função chamada ao clicar no botão Deletar
+     */
     private void clickBotaoDeletar() {
         String cpf = lerCpf();
         if (!verificarCampos(cpf)) {
@@ -215,7 +220,7 @@ public class Clientes extends javax.swing.JPanel {
     }
     
     /**
-     * Função chamada ao clicar no botão Atualizar
+     * Atualiza o cliente
      */
     private void clickBotaoAtualizar() {
         Cliente cliente = lerCliente();
@@ -232,6 +237,9 @@ public class Clientes extends javax.swing.JPanel {
         }
     }
     
+    /**
+     * Função que gera novo report.pdf dos clientes e salva na página do projeto
+     */
     private void newReport() {
         try {
             
