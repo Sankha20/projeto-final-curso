@@ -154,6 +154,7 @@ public class Principal extends javax.swing.JFrame {
                 .addContainerGap(406, Short.MAX_VALUE))
         );
 
+        pnl_conteudo.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         pnl_conteudo.setLayout(new java.awt.CardLayout());
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

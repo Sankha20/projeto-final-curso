@@ -1,21 +1,16 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package model;
 
 /**
  *
- * @author sirab
+ * @author Rodrigo
  */
 public class Produto {
-
-    private int id;
-    private String album;
-    private String midia;
-    private String compositor;
-    private double preco;
+    int id;
+    String album;
+    String compositor;
+    String midia;
+    String genero;
+    double preco;
 
     public int getId() {
         return id;
@@ -33,6 +28,14 @@ public class Produto {
         this.album = album;
     }
 
+    public String getCompositor() {
+        return compositor;
+    }
+
+    public void setCompositor(String compositor) {
+        this.compositor = compositor;
+    }
+
     public String getMidia() {
         return midia;
     }
@@ -41,12 +44,12 @@ public class Produto {
         this.midia = midia;
     }
 
-    public String getCompositor() {
-        return compositor;
+    public String getGenero() {
+        return genero;
     }
 
-    public void setCompositor(String compositor) {
-        this.compositor = compositor;
+    public void setGenero(String genero) {
+        this.genero = genero;
     }
 
     public double getPreco() {
@@ -56,5 +59,15 @@ public class Produto {
     public void setPreco(double preco) {
         this.preco = preco;
     }
-
+    
+     public Object[] formatoTabela() {
+        return new Object[]{
+            getId(),
+            getAlbum(),
+            getCompositor(),
+            getMidia(),
+            getGenero(),
+            getPreco(),
+        };
+    }    
 }
