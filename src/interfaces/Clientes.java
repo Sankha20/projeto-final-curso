@@ -13,9 +13,9 @@ import javax.swing.table.DefaultTableModel;
  */
 public class Clientes extends javax.swing.JPanel {
 
-    DaoClientes bd = new DaoClientes();
+    DaoClientes daoClientes = new DaoClientes();
     ArrayList<Cliente> clientes;
-    Cliente selecionado = null;
+    Cliente clienteSelecionado = null;
     
     public Clientes() {
         initComponents();
@@ -31,7 +31,7 @@ public class Clientes extends javax.swing.JPanel {
      */
     private void atualizarTabela() {
         // Atualiza a lista de clientes
-        clientes = bd.selectAll();
+        clientes = daoClientes.selectAll();
         
         // Salva o modelo da tabela
         DefaultTableModel tab = (DefaultTableModel) tabela_clientes.getModel();
@@ -126,7 +126,7 @@ public class Clientes extends javax.swing.JPanel {
     private void getClienteByCpf(String cpf) {
         clientes.forEach((cliente) -> {
             if (cliente.getCpf().equals(cpf)) {
-                selecionado = cliente;
+                clienteSelecionado = cliente;
             }
         });
     }
@@ -139,7 +139,7 @@ public class Clientes extends javax.swing.JPanel {
         txt_nome.setText("");
         txt_email.setText("");
         txt_pontos.setText("");
-        selecionado = null;
+        clienteSelecionado = null;
     }
     
     
@@ -158,7 +158,7 @@ public class Clientes extends javax.swing.JPanel {
                 "Deseja remover o cliente de cpf %s?", cpf)))
             return;
         
-        if (bd.delete(cpf)) {
+        if (daoClientes.delete(cpf)) {
             Ferramentas.alerta("Deletado com sucesso.");
             atualizarTabela();
             limparCampos();
@@ -176,7 +176,7 @@ public class Clientes extends javax.swing.JPanel {
         if (cliente == null)
             return;
                 
-        if (bd.insert(cliente)) {
+        if (daoClientes.insert(cliente)) {
             Ferramentas.alerta("Inserido com sucesso.");
             atualizarTabela();
             limparCampos();
@@ -197,11 +197,11 @@ public class Clientes extends javax.swing.JPanel {
         
         getClienteByCpf(cpf);
         
-        if (selecionado == null) {
+        if (clienteSelecionado == null) {
             Ferramentas.alerta("Cliente não encontrado.");
             limparCampos();
         } else {
-            preencherCampos(selecionado);
+            preencherCampos(clienteSelecionado);
         }
     }
     
@@ -214,7 +214,7 @@ public class Clientes extends javax.swing.JPanel {
         if (cliente == null)
             return;
         
-        if (bd.update(cliente)) {
+        if (daoClientes.update(cliente)) {
             Ferramentas.alerta("Cliente atualizado com sucesso.");
             limparCampos();
             atualizarTabela();

@@ -99,5 +99,3 @@ insert into produto (album, compositor, midia, preco) values
 	('Longshanks', 'Longshanks', 'CD', 20.00),
 	('Live at NY', 'Philip Nester', 'DVD', 60.00),
 	('Regorgitation', 'Ultrakill9000', 'CD', 43.22);
-	
-	select * from clientes;
