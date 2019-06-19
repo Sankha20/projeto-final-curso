@@ -8,6 +8,8 @@ import model.Produto;
 /**
  *
  * @author França
+ * @author Victor
+ * @author Rodrigo
  */
 public class DaoProdutos {
 

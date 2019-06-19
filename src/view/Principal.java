@@ -13,26 +13,19 @@ public class Principal extends javax.swing.JFrame {
     final boolean DEBUG = true;
     
     // Mudança de telas
-    
     JPanel clientes;
     JPanel produtos;
     JPanel vendas;
     
+    // Nomes dos cards
     final static String CARD_CLIENTES = "clientes";
     final static String CARD_PRODUTOS = "produtos";
     final static String CARD_VENDAS = "vendas";
-    
-    
-    
-    
     
     public Principal() {
         initComponents();
         initCardLayout();
     }
-    
-    
-    
     
 //==============================================================================
 // Region: Victor Pontes
@@ -71,16 +64,23 @@ public class Principal extends javax.swing.JFrame {
         pnl_conteudo.add(vendas, CARD_VENDAS);
     }
     
-    
-    // Botões de comando do menu principal
+    /**
+     * Função chamada ao clicar no botão Clientes
+     */
     private void botaoMenuClientes() {
         mudarMenu(CARD_CLIENTES);
     }
     
+    /**
+     * Função chamada ao clicar no botão Produtos
+     */
     private void botaoMenuProdutos() {
         mudarMenu(CARD_PRODUTOS);
     }
     
+    /**
+     * Função chamada ao clicar no botão Vendas
+     */
     private void botaoMenuVendas() {
         mudarMenu(CARD_VENDAS);
     }
@@ -89,8 +89,6 @@ public class Principal extends javax.swing.JFrame {
 // End Region: Victor Pontes
 //==============================================================================
 
-    
-    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
