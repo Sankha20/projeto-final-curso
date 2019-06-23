@@ -8,6 +8,8 @@ import javax.swing.JOptionPane;
  */
 public class Ferramentas {
     
+    public static boolean DEBUG = true;
+    
     /**
      * Abre caixa de diálogo pedindo confirmação.
      * @param msg A mensagem a ser exibida
@@ -35,6 +37,16 @@ public class Ferramentas {
      */
     public static void erro(String msg) {
         JOptionPane.showMessageDialog(null, msg, "Erro!", JOptionPane.ERROR_MESSAGE);
+    }
+    
+    /**
+     * Função usada para imprimir no terminal msgs de debug.
+     * @param msg Mensagem de deubg
+     */
+    public static void debug(String msg) {
+        if (DEBUG) {
+            System.out.println("DEBUG | " + msg);
+        }
     }
     
 }

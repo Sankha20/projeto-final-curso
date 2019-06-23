@@ -4,6 +4,8 @@ import java.awt.CardLayout;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import utils.Ferramentas;
+
 /**
  * @author Victor Pontes
  */
@@ -36,19 +38,9 @@ public class Principal extends javax.swing.JFrame {
      * @param panel Nome do painel para mudar
      */
     private void mudarMenu(String panel) {
-        debug("Mudando menu para: " + panel);
+        Ferramentas.debug("Mudando menu para: " + panel);
         CardLayout card = (CardLayout) pnl_conteudo.getLayout();
         card.show(pnl_conteudo, panel);
-    }
-    
-    /**
-     * Função usada para imprimir no terminal msgs de debug.
-     * @param msg Mensagem de deubg
-     */
-    private void debug(String msg) {
-        if (DEBUG) {
-            System.out.println("DEBUG | " + msg);
-        }
     }
     
     /**

@@ -6,7 +6,6 @@ import java.util.*;
 import model.Produto;
 
 /**
- *
  * @author França
  * @author Victor
  * @author Rodrigo
@@ -14,6 +13,8 @@ import model.Produto;
 public class DaoProdutos {
 
     // Comentário Victor: Esta parte do código é desnecessária, mas vou deixar aqui e vocês resolvam entre vcs.
+    //Ro: Isso não tinha inicialmente no meu código, deve ter sido um prototipo do Rossi pra teste de venda,
+    //por mim pode deixar já que não atrapalha em nada em minha parte
     private static Connection conexao;
     private static PreparedStatement stm;
     private static ResultSet res;
@@ -74,6 +75,39 @@ public class DaoProdutos {
         
         try {
             // Victor: Mudei esta linha \/
+            Connection con = ConnectionFactory.getConnection();
+            PreparedStatement ps = con.prepareStatement(query);
+            ResultSet rs = ps.executeQuery();
+            
+            while (rs.next()) {
+                Produto produto = new Produto();
+                
+                produto.setId(rs.getInt("id"));
+                produto.setAlbum(rs.getString("album"));
+                produto.setCompositor(rs.getString("compositor"));
+                produto.setMidia(rs.getString("midia"));
+                produto.setGenero(rs.getString("genero"));
+                produto.setPreco(rs.getDouble("preco"));
+                
+                produtos.add(produto);
+            }
+            
+            rs.close();
+            ps.close();
+            con.close();
+            
+        } catch (SQLException e) {
+            System.err.println(e);
+        }
+         
+        return produtos;
+    }
+    
+    public ArrayList<Produto> buscaProduto(String coluna, String busca) {
+        ArrayList<Produto> produtos = new ArrayList<>();
+        String query = String.format("SELECT * FROM produto WHERE " +coluna +" LIKE '" +busca +"%%' ORDER BY id;");
+        
+        try {
             Connection con = ConnectionFactory.getConnection();
             PreparedStatement ps = con.prepareStatement(query);
             ResultSet rs = ps.executeQuery();
@@ -190,53 +224,6 @@ public class DaoProdutos {
         return false;
     }
     
-    public static ResultSet localizarProduto(String nome) {//Busca pelo Album, simples
-      
-      try{
-            // Victor: Mudei esta linha \/
-            Connection con = ConnectionFactory.getConnection();
-            String query = "SELECT * FROM produto WHERE album LIKE '" +nome +"%'"; 
-            PreparedStatement ps = con.prepareStatement(query);
-            ResultSet rs = ps.executeQuery();
-            return rs;
-        }catch (SQLException e){
-            System.out.println(e.getMessage());
-            return null;
-            }
-    }
-  
-  
-   public static ResultSet localizarProduto2(String nome) {//Busca pelo compositor, simples
-        try{
-            // Victor: Mudei esta linha \/
-            Connection con = ConnectionFactory.getConnection();
-            String query = "SELECT * FROM produto WHERE compositor LIKE '" +nome +"%'";
-            
-            PreparedStatement stmt = con.prepareStatement(query);
-            ResultSet rs = stmt.executeQuery();
-            return rs;
-        }catch (SQLException e){
-            System.out.println(e.getMessage());
-            return null;
-            }
-    }
-   
-    public static ResultSet localizarProduto3(String nome) {//Busca pela ID, simples
-        try{
-            // Victor: Mudei esta linha \/
-            Connection con = ConnectionFactory.getConnection();
-            String query = "SELECT * FROM produto WHERE id = '" +nome +"%'";
-            
-            PreparedStatement stmt= con.prepareStatement(query);
-            ResultSet rs = stmt.executeQuery();
-            return rs;
-        }catch (SQLException e){
-            // Victor: Mudei esta linha \/
-            System.out.println("Erro: localizarProduto3 = " + e.getMessage());
-            return null;
-            }
-    }
-    
     public ResultSet imprimir(int numero){
         String inst="Select * from Produto";
         
@@ -260,5 +247,4 @@ public class DaoProdutos {
         }
         return (rS);      
    } 
-
 }
