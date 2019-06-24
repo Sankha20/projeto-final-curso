@@ -4,7 +4,9 @@
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<queryString>
-		<![CDATA[SELECT * FROM socasom.venda;]]>
+		<![CDATA[SELECT venda.id, forma_pagamento, cliente.nome, data_venda, total from venda
+join cliente
+on cliente.id = venda.id_cliente;]]>
 	</queryString>
 	<field name="id" class="java.lang.Integer">
 		<fieldDescription><![CDATA[]]></fieldDescription>
@@ -12,7 +14,7 @@
 	<field name="forma_pagamento" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<field name="id_cliente" class="java.lang.Integer">
+	<field name="nome" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<field name="data_venda" class="java.sql.Date">
@@ -53,23 +55,23 @@
 		<band height="26" splitType="Stretch">
 			<staticText>
 				<reportElement x="0" y="0" width="67" height="20" uuid="e854cb8d-819b-40df-be86-3eef0c6d70cb"/>
-				<text><![CDATA[id_venda]]></text>
+				<text><![CDATA[ID]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="101" y="0" width="100" height="20" uuid="41972a7c-e971-4303-bd13-ef617f8eca65"/>
-				<text><![CDATA[forma_pagamento]]></text>
+				<text><![CDATA[Forma de Pagamento]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="224" y="0" width="100" height="20" uuid="ac7a8c7b-cb41-42cb-9f24-6144bf8d48d9"/>
-				<text><![CDATA[id_cliente]]></text>
+				<text><![CDATA[Cliente]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="355" y="0" width="100" height="20" uuid="6896e7f2-5ce5-4b90-adbd-298a2165783a"/>
-				<text><![CDATA[data_venda]]></text>
+				<text><![CDATA[Data]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="479" y="0" width="76" height="20" uuid="00f8de87-362d-44d9-930b-53d329fdea66"/>
-				<text><![CDATA[total]]></text>
+				<text><![CDATA[Total]]></text>
 			</staticText>
 		</band>
 	</columnHeader>
@@ -85,7 +87,7 @@
 			</textField>
 			<textField>
 				<reportElement x="224" y="0" width="100" height="20" uuid="c5a4154b-f474-4e25-8c63-1336afeb07d3"/>
-				<textFieldExpression><![CDATA[$F{id_cliente}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="355" y="0" width="100" height="20" uuid="9ad0952d-718b-4050-b7b6-cfc861cbed10"/>

@@ -438,10 +438,12 @@ public class Vendas extends javax.swing.JPanel {
 
     private void jBExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBExcluirActionPerformed
         // TODO add your handling code here:
+        
         int index = jtbVenda.getSelectedRow();
 
-        Produto selecionado = new Produto();
-        selecionado = produtos.get(index);
+        Produto selecionado =  produtos.get(index);
+        
+        System.out.println("PRODUTO: " + selecionado.toString());
 
         if (selecionado == null) {
             utils.Ferramentas.alerta("Selecione algum item");
@@ -450,13 +452,18 @@ public class Vendas extends javax.swing.JPanel {
 
         // Vic: Consertando conversão p/ BigDecimal
         BigDecimal valor = new BigDecimal(selecionado.getPreco());
-        //trocar para deduzir
-        BigDecimal resultado = new BigDecimal(0);
-        resultado = venda.getTotal();
+        
+        // Vic: modifiquei isso aqui \/
+        BigDecimal resultado = venda.getTotal();    
+        
+        System.out.println("VENDA: " + venda.getTotal() + " VALOR " + resultado.toString());
+        
         venda.setTotal(resultado.subtract(valor));
-//        venda.setTotal(venda.getTotal().subtract(valor));
+
+        
         System.out.println(resultado);
-        jTextValorTotal.setText(venda.getTotal().toString());
+        jTextValorTotal.setText(
+                String.format("R$ %.2f", venda.getTotal().doubleValue()));
         tableModelVenda.removeRow(index);
 
     }//GEN-LAST:event_jBExcluirActionPerformed
