@@ -22,15 +22,13 @@ create table produto (
 	primary key (id)
 )ENGINE = InnoDB DEFAULT CHARACTER SET = utf8;
 
-
 create table venda (
 	id INT NOT NULL AUTO_INCREMENT,
-	id_cliente_venda int not null,
-	id_item_venda INT NOT NULL,
-	tipo VARCHAR (8),
+    forma_pagamento varchar(20) not null,
+	id_cliente int not null,
+    data_venda DATE,
 	total NUMERIC(10,2),
-	FOREIGN KEY (id_cliente_venda) REFERENCES cliente(id),
-    FOREIGN KEY (id_item_venda) REFERENCES produto(id),
+	FOREIGN KEY (id_cliente) REFERENCES cliente(id),
     primary key (id)
 )ENGINE = InnoDB DEFAULT CHARACTER SET = utf8;
 
@@ -43,8 +41,6 @@ create table item_venda (
 	primary key (id)
 )ENGINE = InnoDB DEFAULT CHARACTER SET = utf8;
 
-alter table venda
-ADD FOREIGN KEY (id_item_venda) REFERENCES item_venda(id);
 
 insert into cliente (cpf, nome, email, pontos) values 
 	('17674224075', 'Devi Pettus', 'dpettus0@yolasite.com', 45),
@@ -94,7 +90,6 @@ insert into cliente (cpf, nome, email, pontos) values
 	('45906308799', 'Deni Connealy', 'dconnealy19@phoca.cz', 68),
 	('23442460811', 'Ron Goodredge', 'rgoodredge1a@hatena.ne.jp', 28),
 	('06532612387', 'Anne-corinne Kmicicki', 'akmicicki1b@tamu.edu', 52);
-
 
 insert into produto (album, compositor, midia, preco) values	
 	('Gotta say something', 'Maugus Fatton', 'vinil', 145.50),

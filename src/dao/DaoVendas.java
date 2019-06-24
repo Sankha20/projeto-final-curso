@@ -23,10 +23,12 @@ public class DaoVendas {
 
     public Venda insert(Venda venda) throws SQLException {
    
-        String query = "INSERT INTO venda(forma_pagamento,id_cliente, total, data_venda) VALUES (?,?,?,?)";
+        String query = "INSERT INTO venda(forma_pagamento,id_cliente, total, data_venda) VALUES (?,?, ?,?)";
         System.out.println(venda.getTotal());
         Connection connection = ConnectionFactory.getConnection();
         PreparedStatement prepStatement = null;
+        
+        System.out.println("FORMA PAGAMENTO: " + venda.getFormaPagamento());
 
         try {
             prepStatement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
@@ -36,6 +38,7 @@ public class DaoVendas {
             prepStatement.setInt(2, venda.getCliente().getId());
             prepStatement.setBigDecimal(3, venda.getTotal());
             prepStatement.setDate(4, new Date(Calendar.getInstance().getTimeInMillis()));
+            //prepStatement.setInt(5, venda.getId_item_venda());
             prepStatement.executeUpdate();
             
             connection.commit();

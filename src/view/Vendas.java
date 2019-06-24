@@ -9,8 +9,11 @@ package view;
  * 
  * Consertei os erros de conversão entre BigDecimal e Double
  * 
+ * Consertei erros de formatação de valores na tela
+ * 
  * Ele ainda não está inserindo no BD.
  */
+
 import utils.Ferramentas;
 import controller.ProdutoController;
 import controller.VendasController;
@@ -21,7 +24,6 @@ import javax.swing.table.DefaultTableModel;
 import model.*;
 
 /**
- *
  * @author França
  */
 public class Vendas extends javax.swing.JPanel {
@@ -124,7 +126,6 @@ public class Vendas extends javax.swing.JPanel {
             }
         });
 
-        jTextValorTotal.setText("jTextField2");
         jTextValorTotal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextValorTotalActionPerformed(evt);
@@ -319,12 +320,10 @@ public class Vendas extends javax.swing.JPanel {
 
         if (confirma) {
             this.venda.setCliente(cliente);
-//            this.venda.setFormaPagamento(FormaDePagamento.DINHEIRO.valor());
+           
+            this.venda.setFormaPagamento(jComboFormaPagamento.getSelectedItem().toString());
             BigDecimal valor = new BigDecimal(0);
             VendasController.gravarVenda(venda, listaProduto);
-
-            this.venda.setFormaPagamento(jComboFormaPagamento.getSelectedItem().toString());
-
         }
 
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -363,7 +362,10 @@ public class Vendas extends javax.swing.JPanel {
         BigDecimal valor = new BigDecimal(selecionado.getPreco());
         
         venda.setTotal(venda.getTotal().add(valor));
-        jTextValorTotal.setText(venda.getTotal().toString());
+        
+        // Vic: Consertando formatação de valores na tela
+        jTextValorTotal.setText(
+                String.format("R$ %.2f",venda.getTotal().doubleValue()));
     }//GEN-LAST:event_jBAdicionarActionPerformed
 
     private void jtbVendaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtbVendaMouseClicked

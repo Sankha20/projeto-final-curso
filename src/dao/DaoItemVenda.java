@@ -18,15 +18,17 @@ import utils.Ferramentas;
 public class DaoItemVenda {
 
     public void insertItem(List<Produto> produtos, Venda venda) throws SQLException {
-        String sql = "INSERT INTO item_venda (produto_id, venda_id) "
+        String sql = "INSERT INTO item_venda (id_venda, id_produto) "
                 + "VALUES (?, ?);";
         Connection connection = ConnectionFactory.getConnection();
         PreparedStatement prepStatement = connection.prepareStatement(sql);
         try {
             connection.setAutoCommit(false);
             for (Produto produto : produtos) {
-                prepStatement.setInt(1, produto.getId());
-                prepStatement.setInt(2, venda.getId());
+                
+                prepStatement.setInt(1, venda.getId());
+                prepStatement.setInt(2, produto.getId());
+                
                 prepStatement.execute();
                 connection.commit();
                 System.out.println("Item salvo com sucesso!");
