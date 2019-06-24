@@ -641,7 +641,6 @@ public class Clientes extends javax.swing.JPanel {
                     daoClientes.update(clienteSelecionado);
                     Ferramentas.alerta("Pontos resetados");
                     atualizarTabela();
-                    clickBotaoConsultar();
                 }
             } else {
                 Ferramentas.erro("O cliente não tem pontos suficientes.");
