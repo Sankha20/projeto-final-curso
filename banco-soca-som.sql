@@ -8,7 +8,7 @@ create table cliente (
 	cpf VARCHAR(11),
 	nome VARCHAR(128),
 	email VARCHAR(70),
-	pontos INT,
+	pontos INT default 0,
 	primary key (id)
 )ENGINE = InnoDB DEFAULT CHARACTER SET = utf8;
 

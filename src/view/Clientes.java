@@ -188,10 +188,7 @@ public class Clientes extends javax.swing.JPanel {
      */
     private void clickBotaoAdicionar() {
         Cliente cliente = lerCliente();
-        
-        if (cliente == null)
-            return;
-                
+                        
         if (daoClientes.insert(cliente)) {
             Ferramentas.alerta("Inserido com sucesso.");
             atualizarTabela();
@@ -208,6 +205,8 @@ public class Clientes extends javax.swing.JPanel {
             Ferramentas.alerta("Preencha o CPF.");
             return;
         }
+        
+        atualizarTabela();
         
         getClienteByCpf(cpf);
         
@@ -600,6 +599,7 @@ public class Clientes extends javax.swing.JPanel {
             txt_pontos.setText(pontos);
             
             clickBotaoConsultar();
+            atualizarTabela();
         }                
     }//GEN-LAST:event_tabela_clientesMouseClicked
 

@@ -119,14 +119,14 @@ public class DaoClientes {
      * Indicando se deu certo ou não.
      */
     public boolean insert (Cliente cliente) {
-        String sql = "INSERT INTO cliente (id, cpf, nome, email, pontos) "
-                + "VALUES (?, ?, ?, ?);";  
+        String sql = "INSERT INTO cliente (cpf, nome, email) "
+                + "VALUES (?, ?, ?);";  
         
         try {
             
             Cliente c = buscarClientePorCpf(cliente.getCpf());
             
-            if (c.getCpf().equals(cliente.getCpf())) {
+            if (c.getCpf() != null && c.getCpf().equals(cliente.getCpf())) {
                 Ferramentas.erro("CPF já cadastrado.");
                 return false;
             }
@@ -134,11 +134,10 @@ public class DaoClientes {
             Connection connection = ConnectionFactory.getConnection();
             PreparedStatement prepStatement = connection.prepareStatement(sql);
                         
-            prepStatement.setInt(1, cliente.getId());
-            prepStatement.setString(2, cliente.getCpf());
-            prepStatement.setString(3, cliente.getNome());
-            prepStatement.setString(4, cliente.getEmail());
-            prepStatement.setInt(5, cliente.getPontos());
+            prepStatement.setString(1, cliente.getCpf());
+            prepStatement.setString(2, cliente.getNome());
+            prepStatement.setString(3, cliente.getEmail());
+            //prepStatement.setInt(4, cliente.getPontos());
             
             prepStatement.execute();
             prepStatement.close();

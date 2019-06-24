@@ -14,6 +14,10 @@ package view;
  * Consertei os BUGS na hora de realizar venda
  * 
  * Adicionei sistema de Pontos que estava faltando
+ * 
+ * OBS: Tem um "erro" no seu buscarClientePorCpf. Ele retorna um cliente mesmo
+ * que o cliente não exista. Isso poderia gerar muitos problemas. Como gerou para mim
+ * Até eu descobrir que era isso... xD
  */
 
 import utils.Ferramentas;
