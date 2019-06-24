@@ -6,7 +6,7 @@
 package dao;
 
 import utils.*;
-import com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException;
+//import com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException;
 import model.Cliente;
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -140,14 +140,14 @@ public class DaoClientes {
             connection.close();
 
             return true;
-
-        } catch (MySQLIntegrityConstraintViolationException e) {
-            Ferramentas.erro("CPF já cadastrado.");
-
-        } catch (SQLException e) {
-            Ferramentas.erro("Houve um erro ao tentar adicionar novo cliente.");
-            System.err.println(e);
-        }
+//
+//        } catch (MySQLIntegrityConstraintViolationException e) {
+//            Ferramentas.erro("CPF já cadastrado.");
+//
+//        } catch (SQLException e) {
+//            Ferramentas.erro("Houve um erro ao tentar adicionar novo cliente.");
+//            System.err.println(e);
+//        }
 
         return false;
     }
