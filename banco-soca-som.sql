@@ -4,11 +4,12 @@ create schema socasom;
 use socasom;
 
 create table cliente (
+	id int not null AUTO_INCREMENT,
 	cpf VARCHAR(11),
 	nome VARCHAR(128),
 	email VARCHAR(70),
 	pontos INT,
-	primary key (cpf)
+	primary key (id)
 )ENGINE = InnoDB DEFAULT CHARACTER SET = utf8;
 
 create table produto (
@@ -24,11 +25,12 @@ create table produto (
 
 create table venda (
 	id INT NOT NULL AUTO_INCREMENT,
-	cpf VARCHAR(11),
+	id_cliente_venda int not null,
 	id_item_venda INT NOT NULL,
 	tipo VARCHAR (8),
 	total NUMERIC(10,2),
-	FOREIGN KEY (cpf) REFERENCES cliente(cpf),
+	FOREIGN KEY (id_cliente_venda) REFERENCES cliente(id),
+    FOREIGN KEY (id_item_venda) REFERENCES produto(id),
     primary key (id)
 )ENGINE = InnoDB DEFAULT CHARACTER SET = utf8;
 

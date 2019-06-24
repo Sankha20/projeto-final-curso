@@ -2,6 +2,7 @@ package model;
 
 public class Cliente {
 
+    private int id;
     private String cpf;
     private String nome;
     private String email;
@@ -38,9 +39,17 @@ public class Cliente {
             getPontos(),};
     }
 
+    public int getId() {
+        return id;
+    }
+    
 //------------------------------------------------------------------------------
 // SETTERS
 //------------------------------------------------------------------------------
+    public void setId(int id) {
+        this.id = id;
+    }
+    
     public boolean setCpf(String cpf) {
         if (cpf.matches("[0-9]+") && cpf.length() == 11) {
             this.cpf = cpf;

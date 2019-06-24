@@ -33,6 +33,7 @@ public class DaoClientes {
             while (resultSet.next()) {
                 Cliente cliente = new Cliente();
                 
+                cliente.setId(resultSet.getInt("id"));
                 cliente.setCpf(resultSet.getString("cpf"));
                 cliente.setNome(resultSet.getString("nome"));
                 cliente.setEmail(resultSet.getString("email"));
@@ -118,17 +119,26 @@ public class DaoClientes {
      * Indicando se deu certo ou não.
      */
     public boolean insert (Cliente cliente) {
-        String sql = "INSERT INTO cliente (cpf, nome, email, pontos) "
+        String sql = "INSERT INTO cliente (id, cpf, nome, email, pontos) "
                 + "VALUES (?, ?, ?, ?);";  
         
         try {
+            
+            Cliente c = buscarClientePorCpf(cliente.getCpf());
+            
+            if (c.getCpf().equals(cliente.getCpf())) {
+                Ferramentas.erro("CPF já cadastrado.");
+                return false;
+            }
+            
             Connection connection = ConnectionFactory.getConnection();
             PreparedStatement prepStatement = connection.prepareStatement(sql);
-            
-            prepStatement.setString(1, cliente.getCpf());
-            prepStatement.setString(2, cliente.getNome());
-            prepStatement.setString(3, cliente.getEmail());
-            prepStatement.setInt(4, cliente.getPontos());
+                        
+            prepStatement.setInt(1, cliente.getId());
+            prepStatement.setString(2, cliente.getCpf());
+            prepStatement.setString(3, cliente.getNome());
+            prepStatement.setString(4, cliente.getEmail());
+            prepStatement.setInt(5, cliente.getPontos());
             
             prepStatement.execute();
             prepStatement.close();
@@ -136,14 +146,38 @@ public class DaoClientes {
             
             return true;
             
-        } catch (MySQLIntegrityConstraintViolationException e) {
-            Ferramentas.erro("CPF já cadastrado.");
-            
         } catch (SQLException e) {
             Ferramentas.erro("Houve um erro ao tentar adicionar novo cliente.");
             System.err.println(e);
         }
 
         return false;
+    }
+    
+    public static Cliente buscarClientePorCpf(String cpf) {
+        Cliente cliente = new Cliente();
+        String query = "SELECT * FROM cliente WHERE cpf = " + cpf;
+        try {
+            Connection conn = ConnectionFactory.getConnection();
+            PreparedStatement stm = conn.prepareStatement(query);
+//            stm.setBoolean(1, true);
+            ResultSet rs = stm.executeQuery();
+
+            while (rs.next()) {
+                cliente.setId(rs.getInt("id"));
+                cliente.setCpf(rs.getString("cpf"));
+                cliente.setNome(rs.getString("nome"));
+                cliente.setEmail(rs.getString("email"));
+                
+                // Vic: França, vc esqueceu os pontos
+                cliente.addPontos(rs.getInt("pontos"));
+            }
+        } catch (Exception e) {
+            Ferramentas.erro("erro ao tentar carregar cliente: " + e);
+            e.printStackTrace();
+            throw new RuntimeException();
+        }
+
+        return cliente;
     }
 }
