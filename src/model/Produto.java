@@ -5,17 +5,20 @@
  */
 package model;
 
+import java.math.BigDecimal;
+
 /**
  *
- * @author sirab
+ * @author Rodrigo
  */
 public class Produto {
 
-    private int id;
-    private String album;
-    private String midia;
-    private String compositor;
-    private double preco;
+    int id;
+    String album;
+    String compositor;
+    String midia;
+    String genero;
+    BigDecimal preco;
 
     public int getId() {
         return id;
@@ -33,14 +36,6 @@ public class Produto {
         this.album = album;
     }
 
-    public String getMidia() {
-        return midia;
-    }
-
-    public void setMidia(String midia) {
-        this.midia = midia;
-    }
-
     public String getCompositor() {
         return compositor;
     }
@@ -49,12 +44,44 @@ public class Produto {
         this.compositor = compositor;
     }
 
-    public double getPreco() {
+    public String getMidia() {
+        return midia;
+    }
+
+    public void setMidia(String midia) {
+        this.midia = midia;
+    }
+
+    public String getGenero() {
+        return genero;
+    }
+
+    public void setGenero(String genero) {
+        this.genero = genero;
+    }
+
+    public BigDecimal getPreco() {
         return preco;
     }
 
-    public void setPreco(double preco) {
+    public void setPreco(BigDecimal preco) {
         this.preco = preco;
     }
 
+  
+
+    public Object[] formatoTabela() {
+        return new Object[]{
+            getId(),
+            getAlbum(),
+            getCompositor(),
+            getMidia(),
+            getGenero(),
+            getPreco(),};
+    }
+
+    @Override
+    public String toString() {
+        return "Produto{" + "id=" + id + ", album=" + album + ", compositor=" + compositor + ", midia=" + midia + ", genero=" + genero + ", preco=" + preco + '}';
+    }
 }

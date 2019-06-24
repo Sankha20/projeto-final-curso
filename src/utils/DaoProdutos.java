@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package utilidades;
+package utils;
 
 import java.sql.*;
 import java.util.*;
@@ -48,7 +48,7 @@ public class DaoProdutos {
                 produto.setCompositor(res.getString("compositor"));
                 produto.setAlbum(res.getString("album"));
                 produto.setMidia(res.getString("midia"));
-                produto.setPreco(res.getDouble("preco"));
+                produto.setPreco(res.getBigDecimal("preco"));
                 produtos.add(produto);
             }
         } catch (SQLException e) {

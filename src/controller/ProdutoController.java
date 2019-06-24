@@ -7,7 +7,7 @@ package controller;
 
 import java.util.*;
 import model.Produto;
-import utilidades.DaoProdutos;
+import utils.DaoProdutos;
 
 /**
  *

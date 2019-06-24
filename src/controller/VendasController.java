@@ -5,44 +5,31 @@
  */
 package controller;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import model.Cliente;
-import utilidades.ConnectionFactory;
-import utilidades.Ferramentas;
+import java.sql.*;
+import model.*;
+import dao.*;
+import java.util.*;
 
 /**
  *
- * @author sirab
+ * @author França
  */
 public class VendasController {
-    
-    public static Cliente buscarClientePorCpf(String cpf) {
-        Cliente cliente = new Cliente();
-        final String SELECT_BY_NAME = "select * from cliente where nome like'" + cpf + "%' ";
-        try {
-            Connection conn = ConnectionFactory.getConnection();
-            PreparedStatement stm = conn.prepareStatement(SELECT_BY_NAME);
-//            stm.setBoolean(1, true);
-            ResultSet rs = stm.executeQuery();
-            if (!rs.next()) {
-                Ferramentas.alerta("nao tem nada");
-            }
-            while (rs.next()) {
-                
-                cliente.setCpf(rs.getString("cpf"));
-                cliente.setNome(rs.getString("nome"));
-                cliente.setEmail(rs.getString("email"));
-            }
-            
-        } catch (Exception e) {
-            Ferramentas.erro("erro ao tentar carregar tabela: " + e);
-            e.printStackTrace();
-            throw new RuntimeException();
-        }
-        
-        return cliente;
+
+    public static Cliente buscarPorCpf(String cpf) {
+
+        return DaoClientes.buscarClientePorCpf(cpf);
     }
-    
+
+    public static void gravarVenda(Venda venda, List<Produto> produtos) {
+        try {
+            DaoVendas daoVendas = new DaoVendas();
+            Venda vendaRealizada = daoVendas.insert(venda);
+
+            DaoItemVenda daoItemVenda = new DaoItemVenda();
+            daoItemVenda.insertItem(produtos, vendaRealizada);
+        } catch (Exception e) {
+            System.err.println(e);
+        }
+    }
 }
