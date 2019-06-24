@@ -1,7 +1,6 @@
 package dao;
 
 import utils.Ferramentas;
-import com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException;
 import model.Cliente;
 import java.sql.Connection;
 import java.sql.SQLException;
