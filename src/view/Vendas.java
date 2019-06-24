@@ -26,7 +26,7 @@ import model.*;
 
 /**
  *
- * @author just_
+ * @author França
  */
 public class Vendas extends javax.swing.JPanel {
 
@@ -106,6 +106,7 @@ public class Vendas extends javax.swing.JPanel {
         jTextCpf = new javax.swing.JTextField();
         jTextEmail = new javax.swing.JTextField();
         jComboFormaPagamento = new javax.swing.JComboBox();
+        jBtBuscarPorCpf1 = new javax.swing.JButton();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -224,6 +225,13 @@ public class Vendas extends javax.swing.JPanel {
             }
         });
 
+        jBtBuscarPorCpf1.setText("Atualizar");
+        jBtBuscarPorCpf1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtBuscarPorCpf1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -251,9 +259,6 @@ public class Vendas extends javax.swing.JPanel {
                             .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 461, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addComponent(jBAdicionar, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel1)
@@ -262,7 +267,12 @@ public class Vendas extends javax.swing.JPanel {
                                     .addComponent(jButton1)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(29, 29, 29)
-                                .addComponent(jComboFormaPagamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                .addComponent(jComboFormaPagamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jBAdicionar, javax.swing.GroupLayout.DEFAULT_SIZE, 84, Short.MAX_VALUE)
+                                    .addComponent(jBtBuscarPorCpf1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -270,7 +280,9 @@ public class Vendas extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(60, 60, 60)
-                        .addComponent(jBAdicionar))
+                        .addComponent(jBAdicionar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jBtBuscarPorCpf1))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(31, 31, 31)
                         .addComponent(jLabel2)
@@ -289,7 +301,7 @@ public class Vendas extends javax.swing.JPanel {
                         .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(15, 15, 15))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(39, 39, 39)
+                        .addGap(32, 32, 32)
                         .addComponent(jComboFormaPagamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -422,11 +434,17 @@ public class Vendas extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboFormaPagamentoActionPerformed
 
+    private void jBtBuscarPorCpf1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtBuscarPorCpf1ActionPerformed
+        // TODO add your handling code here:
+        carregaProdutos();
+    }//GEN-LAST:event_jBtBuscarPorCpf1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBAdicionar;
     private javax.swing.JButton jBExcluir;
     private javax.swing.JButton jBtBuscarPorCpf;
+    private javax.swing.JButton jBtBuscarPorCpf1;
     private javax.swing.JButton jButton1;
     private javax.swing.JComboBox jComboFormaPagamento;
     private javax.swing.JLabel jLabel1;
