@@ -1,27 +1,23 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package view;
 
+/** 
+ * VICTOR \/
+ * Limpei os imports não utilizados.. tinham uns 10
+ * 
+ * Inseri um botão para atualizar a lista de mídias que não atualizava
+ * ao inserir uma nova.
+ * 
+ * Consertei os erros de conversão entre BigDecimal e Double
+ * 
+ * Ele ainda não está inserindo no BD.
+ */
 import utils.Ferramentas;
 import controller.ProdutoController;
 import controller.VendasController;
-import java.awt.FlowLayout;
-import java.awt.Frame;
 import java.math.BigDecimal;
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Vector;
-import javax.swing.DefaultComboBoxModel;
-import javax.swing.JDialog;
-import javax.swing.JFrame;
-import javax.swing.JRadioButton;
-import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableModel;
 import model.*;
 
 /**
