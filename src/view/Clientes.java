@@ -282,6 +282,7 @@ public class Clientes extends javax.swing.JPanel {
         txt_cpf = new javax.swing.JFormattedTextField();
         txt_pontos = new javax.swing.JFormattedTextField();
         btn_limpar = new javax.swing.JButton();
+        btn_recompensa = new javax.swing.JButton();
         lbl_clientes = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
 
@@ -500,6 +501,20 @@ public class Clientes extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(0, 12, 0, 0);
         jPanel4.add(btn_limpar, gridBagConstraints);
 
+        btn_recompensa.setText("Recompensa");
+        btn_recompensa.setToolTipText("Buscar clientes por CPF");
+        btn_recompensa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_recompensaActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(0, 12, 0, 0);
+        jPanel4.add(btn_recompensa, gridBagConstraints);
+
         lbl_clientes.setForeground(new java.awt.Color(255, 0, 0));
         lbl_clientes.setText("0");
 
@@ -583,6 +598,8 @@ public class Clientes extends javax.swing.JPanel {
             txt_nome.setText(nome);
             txt_email.setText(email);
             txt_pontos.setText(pontos);
+            
+            clickBotaoConsultar();
         }                
     }//GEN-LAST:event_tabela_clientesMouseClicked
 
@@ -615,12 +632,32 @@ public class Clientes extends javax.swing.JPanel {
         newReport();
     }//GEN-LAST:event_btn_relatorioActionPerformed
 
+    private void btn_recompensaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_recompensaActionPerformed
+        // TODO add your handling code here:
+        if (clienteSelecionado != null ) {
+            if (clienteSelecionado.getPontos() == 100) {
+                if ( Ferramentas.confirma("Quer mesmo dar recompensa a esse cliente?") ) {
+                    clienteSelecionado.subPontos(1000);
+                    daoClientes.update(clienteSelecionado);
+                    Ferramentas.alerta("Pontos resetados");
+                    atualizarTabela();
+                    clickBotaoConsultar();
+                }
+            } else {
+                Ferramentas.erro("O cliente não tem pontos suficientes.");
+            }
+        } else {
+            Ferramentas.erro("Selecione um cliente.");
+        }
+    }//GEN-LAST:event_btn_recompensaActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_adicionar;
     private javax.swing.JButton btn_atualizar;
     private javax.swing.JButton btn_consultar;
     private javax.swing.JButton btn_limpar;
+    private javax.swing.JButton btn_recompensa;
     private javax.swing.JButton btn_relatorio;
     private javax.swing.JButton btn_remover;
     private javax.swing.JLabel jLabel1;
