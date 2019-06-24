@@ -22,12 +22,12 @@ import utils.Ferramentas;
 public class DaoVendas {
 
     public Venda insert(Venda venda) throws SQLException {
-   
+
         String query = "INSERT INTO venda(forma_pagamento,id_cliente, total, data_venda) VALUES (?,?, ?,?)";
         System.out.println(venda.getTotal());
         Connection connection = ConnectionFactory.getConnection();
         PreparedStatement prepStatement = null;
-        
+
         System.out.println("FORMA PAGAMENTO: " + venda.getFormaPagamento());
 
         try {
@@ -40,7 +40,7 @@ public class DaoVendas {
             prepStatement.setDate(4, new Date(Calendar.getInstance().getTimeInMillis()));
             //prepStatement.setInt(5, venda.getId_item_venda());
             prepStatement.executeUpdate();
-            
+
             connection.commit();
             final ResultSet rs = prepStatement.getGeneratedKeys();
             if (rs.next()) {
@@ -57,7 +57,7 @@ public class DaoVendas {
                 // TODO Auto-generated catch block
                 e1.printStackTrace();
             }
-            System.out.println("Ocorreu algum erro no metodo salvar(Aluno aluno)");
+            System.out.println("Ocorreu algum erro no metodo inserir venda");
             e.printStackTrace();
             Ferramentas.erro("Houve um erro ao inserir um item.");
             System.err.println(e);
