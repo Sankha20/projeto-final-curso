@@ -5,8 +5,8 @@ import java.sql.*;
 
 public abstract class ConnectionFactory {
 
-    private static final String USER = "usuario";
-    private static final String PASS = "usuario";
+    private static final String USER = "root";
+    private static final String PASS = "798451";
     private static final String PORT = "3307";
     private static final String URL = String.format(
             "jdbc:mysql://localhost:%s/socasom?useUnicode=true&"
