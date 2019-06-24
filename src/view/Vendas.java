@@ -11,7 +11,9 @@ package view;
  * 
  * Consertei erros de formatação de valores na tela
  * 
- * Ele ainda não está inserindo no BD.
+ * Consertei os BUGS na hora de realizar venda
+ * 
+ * Adicionei sistema de Pontos que estava faltando
  */
 
 import utils.Ferramentas;

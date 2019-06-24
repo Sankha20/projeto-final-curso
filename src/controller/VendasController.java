@@ -22,12 +22,20 @@ public class VendasController {
     }
 
     public static void gravarVenda(Venda venda, List<Produto> produtos) {
+        DaoClientes dc = new DaoClientes();
+        
         try {
             DaoVendas daoVendas = new DaoVendas();
             Venda vendaRealizada = daoVendas.insert(venda);
-
+            Cliente c = venda.getCliente();
+            
             DaoItemVenda daoItemVenda = new DaoItemVenda();
             daoItemVenda.insertItem(produtos, vendaRealizada);
+            
+            // VIC: Adcionado sistema de pontos
+            c.addPontos(produtos.size() * 5);
+            dc.update(c);
+            
         } catch (Exception e) {
             System.err.println(e);
         }
