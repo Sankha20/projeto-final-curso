@@ -26,6 +26,7 @@ create table venda (
 	id INT NOT NULL AUTO_INCREMENT,
     forma_pagamento varchar(20) not null,
 	id_cliente int not null,
+	quantidade int not null,
     data_venda DATE,
 	total NUMERIC(10,2),
 	FOREIGN KEY (id_cliente) REFERENCES cliente(id),
